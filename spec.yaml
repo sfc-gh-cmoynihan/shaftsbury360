@@ -1,0 +1,13 @@
+spec:
+  containers:
+    - name: shaftsbury360
+      image: /shaftesbury_db/app/shaftesbury_repo/shaftsbury360:latest
+      env:
+        SNOWFLAKE_WAREHOUSE: SHAFTESBURY_IWH
+      readinessProbe:
+        port: 8080
+        path: /healthcheck
+  endpoints:
+    - name: shaftsbury360
+      port: 8080
+      public: true
